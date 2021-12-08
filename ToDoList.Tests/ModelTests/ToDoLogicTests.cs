@@ -10,7 +10,7 @@ namespace ToDoList.Tests
   {
     public void Dispose()
     {
-      Item.ClearAll();
+      // Item.ClearAll();
     }
     [TestMethod]
     public void ItemConstructor_DoesMakesItemsFrumClass_Thing()
@@ -58,6 +58,25 @@ namespace ToDoList.Tests
 
       CollectionAssert.AreEqual(newList, Item.GetAll());
     }
+    [TestMethod]
+    public void GetAll_ReturnstoConsole_ItemList()
+    {
+      string d1 = "Storm the Castle";
+      string d2 = "Save your father";
+      string d3 = "???";
+      string d4 = "profit?";
+      Item ni1 = new Item(d1);
+      Item ni2 = new Item(d2);
+      Item ni3 = new Item(d3);
+      Item ni4 = new Item(d4);
+      List<Item> newList = new List<Item> { ni1,ni2,ni3,ni4 };
 
+      Console.WriteLine("Here's your to do list");
+      Console.WriteLine("======================");
+      foreach(Item thing in newList){
+        Console.WriteLine("- " + thing.Description);
+      }
+      CollectionAssert.AreEqual(newList, Item.GetAll());
+    }
   }
 }
