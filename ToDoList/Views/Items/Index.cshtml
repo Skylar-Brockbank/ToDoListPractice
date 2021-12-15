@@ -10,7 +10,11 @@
 <ul>
   @foreach (Item item in Model)
   {
-    <li>@item.Description</li>
+    <li><form style="display: inline; margin-right: 1em; " action = "/items/@item.Id" method="post"><button type="submit" name="button">delete</button></form><a href='/items/@item.Id'>@item.Description</a></li>
   }
 </ul>
+<form action="/items/delete" method="post">
+  <label for="button">I cleared them... not just the men, but the women, and the Children too... I HATE THEM! THEY'RE ANIMALS! </label>
+  <button type="submit" name="button">SO I CLEARED THEM LIKE ANIMALS</button>
+</form>
 <a href="/items/new">Add a new Item</a>
